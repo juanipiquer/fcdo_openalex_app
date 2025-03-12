@@ -49,7 +49,7 @@ app.layout = html.Div([
     ),
     html.Div([
         dcc.Graph(id="country-network-graph", clear_on_unhover=True, 
-        config={'scrollZoom': True}, style={'flex': '1', 'height': '650px'}),
+        config={'scrollZoom': True}, style={'flex': '1', 'height': '550px'}),
         html.Div(id="hovered-country-pairings-container", children=[
             html.H3(id="hovered-country-name", children="Top 3 Collaborators"),
             html.Ul(id="hovered-country-pairings")
@@ -156,7 +156,9 @@ def update_graph(selected_topic, selected_years, hoverData, selected_labels):
         name=""
     ))
     fig.update_layout(title=f"{selected_topic} Collaborations ({selected_years[0]}-{selected_years[1]})", showlegend=False, uirevision="network",
-                      font=dict(family="Helvetica", size=14))
+                      font=dict(family="Helvetica", size=14), 
+                      xaxis=dict( showticklabels=False),
+                      yaxis=dict(showticklabels=False))
     return fig, hovered_country_label, hovered_pairings if hovered_pairings else [html.Li("None")], country_options
 
 if __name__ == "__main__":
