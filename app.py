@@ -51,10 +51,10 @@ app.layout = html.Div([
         dcc.Graph(id="country-network-graph", clear_on_unhover=True, 
         config={'scrollZoom': True}, style={'flex': '1', 'height': '550px'}),
         html.Div(id="hovered-country-pairings-container", children=[
-            html.H3(id="hovered-country-name", children="Top 3 Collaborators"),
-            html.Ul(id="hovered-country-pairings")
-        ], style={'position': 'absolute', 'top': '10px', 'right': '10px', 'background-color': 'white', 'padding': '10px', 'border': '1px solid black', 'z-index': '10'})
-    ], style={'display': 'flex', 'position': 'relative'})
+            html.Div(id="hovered-country-name", style={'font-size': '20px', 'font-family': 'Helvetica'}),
+            html.Div(id="hovered-country-pairings", style={'font-family': 'Helvetica'})
+        ], style={'padding': '10px'})
+    ], style={'display': 'flex', 'flex-direction': 'column'})
 ])
 
 @app.callback(
